@@ -1,28 +1,34 @@
-<div x-data="{ open: false }" class="bg-white fixed top-0 z-50 w-full">
+<div x-data="{ open: false }" class="bg-white fixed top-0 z-50 w-full h-24 shadow-lg">
   <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+          <span class="sr-only">Simposium Manado</span>
+          <p class="sm:text-3xl lg:text-xl 2xl:text-3xl font-bold bg-gradient-to-tl from-sky-800  to-sky-400 bg-clip-text text-transparent">Simposium Manado</p>
         </a>
       </div>
       <div class="flex lg:hidden">
         <button @click="open = ! open" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
           <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
       </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900"></a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+      <div class="2xl:text-lg lg:text-sm hidden lg:flex lg:gap-x-12">
+        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">EVENT 1</a>
+        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">EVENT 2</a>
+        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </a>
+        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</a>
       </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+      <div class="2xl:text-lg lg-text-sm hidden lg:flex lg:flex-1 lg:justify-end">
+        <div class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300">
+          <a href="#" class="font-semibold leading-6 uppercase">Masuk</a>
+
+        </div>
+        <div class="rounded-full text-sky-500 mx-5 px-5 py-2 bg-white outline outline-sky-100 hover:bg-sky-500 hover:text-white hover:outline-none hover:scale-110 active:ring-sky-300 trasition duration-300 ">
+          <a href="#" class="font-semibold leading-6 uppercase">Daftar</a>
+        </div>
       </div>
     </nav>
 
@@ -47,7 +53,7 @@
           </a>
           <button @click="open = ! open" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
             <span class="sr-only">Close menu</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
