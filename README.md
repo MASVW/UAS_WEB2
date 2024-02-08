@@ -1,1 +1,1 @@
-#Verrem Cantik
+#Responsive Simposium Manado
