@@ -16,8 +16,11 @@
         </button>
       </div>
       <div class="2xl:text-lg lg:text-sm hidden lg:flex lg:gap-x-12">
-        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">EVENT 1</a>
-        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">EVENT 2</a>
+        @foreach ($this->events as $events)
+          <a wire:key="{{ $events->id }}" 
+            wire:click.prevent="sendToReceiver({{$events->id}})" 
+            class="@if($this->eventId == $events->id)  active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500 @else  active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white  text-gray-900 @endif font-semibold leading-6 rounded-full px-5 py-2 transition duration-300 hover:scale-110 hover:shadow-lg">{{$events->eventName}}</a>
+        @endforeach
         <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </a>
         <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</a>
       </div>
@@ -61,14 +64,17 @@
         <div class="mt-6 flow-root">
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+            @foreach ($this->events as $events)
+              <a wire:key="{{ $events->id }}" href="{{$events->slug}}" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">{{$events->eventName}}</a>
+            @endforeach
+            <a href="#" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </a>
+            <a href="#" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</a>
+          </div>
+            <div class="flow-root">
+              <a href="#" class="block rounded-lg my-3 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 font-semibold leading-6 uppercase">Masuk</a>
+              <a href="#" class="block rounded-lg text-sky-500 my-3 px-5 py-2 bg-white outline outline-sky-100 hover:bg-sky-500 hover:text-white hover:outline-none hover:scale-110 active:ring-sky-300 trasition duration-300 font-semibold leading-6 uppercase">Daftar</a>             
             </div>
-            <div class="py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
-            </div>
+            
           </div>
         </div>
       </div>
