@@ -12,9 +12,15 @@
     @livewireStyles
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
 </head>
-<body>
+<body x-data="{ scrollPosition: 0, showHiddenDiv: false, showForm: false }" x-init="() => { 
+        window.addEventListener('scroll', () => { 
+            scrollPosition = window.scrollY; 
+            showHiddenDiv = showHiddenDiv || scrollPosition > 50;
+            showForm = showForm || scrollPosition > 800;
+        });
+    }">
     <livewire:navigation/>
-    
+    <livewire:homeSection/>
     @livewireScripts
 </body>
 </html>
