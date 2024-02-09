@@ -21,6 +21,9 @@ export default {
             },
             height: {
                 '128' : '42rem'
+            },
+            width:{
+                "price": '90%'
             }
         },
     },

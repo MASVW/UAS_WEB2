@@ -9,7 +9,7 @@ use Livewire\Component;
 class HomeSection extends Component
 {
     public $id = 1;
-    protected $listeners = ['dataUpdated' => 'handleDataUpdate'];
+    protected $listeners = ['dataUpdated'];
     public $event;
     
     #[Computed]
@@ -18,7 +18,7 @@ class HomeSection extends Component
         return Events::find($this->id);
     }
 
-    public function handleDataUpdate($id)
+    public function dataUpdated($id)
     {
         $this->id = $id;
         $this->events();

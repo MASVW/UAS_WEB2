@@ -17,12 +17,12 @@
       </div>
       <div class="2xl:text-lg lg:text-sm hidden lg:flex lg:gap-x-12">
         @foreach ($this->events as $events)
-          <a wire:key="{{ $events->id }}" 
+          <button wire:key="{{ $events->id }}" 
             wire:click.prevent="sendToReceiver({{$events->id}})" 
-            class="@if($this->eventId == $events->id)  active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500 @else  active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white  text-gray-900 @endif font-semibold leading-6 rounded-full px-5 py-2 transition duration-300 hover:scale-110 hover:shadow-lg">{{$events->eventName}}</a>
+            class="cursor-pointer @if($this->eventId == $events->id)  active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500 @else  active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white  text-gray-900 @endif font-semibold leading-6 rounded-full px-5 py-2 transition duration-300 hover:scale-110 hover:shadow-lg">{{$events->eventName}}</button>
         @endforeach
-        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </a>
-        <a href="#" class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</a>
+        <button class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </button>
+        <button class="hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300 rounded-full px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</button>
       </div>
       <div class="2xl:text-lg lg-text-sm hidden lg:flex lg:flex-1 lg:justify-end">
         <div class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300">
@@ -65,7 +65,7 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
             @foreach ($this->events as $events)
-              <a wire:key="{{ $events->id }}" href="{{$events->slug}}" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">{{$events->eventName}}</a>
+              <button wire:key="{{ $events->id }}" href="{{$events->slug}}" class="cursor-pointer block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold text-gray-900">{{$events->eventName}}</button>
             @endforeach
             <a href="#" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </a>
             <a href="#" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</a>

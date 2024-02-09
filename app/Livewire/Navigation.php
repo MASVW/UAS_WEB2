@@ -41,6 +41,5 @@ class Navigation extends Component
         $this->eventId = $eventId;
         $this->dispatch('dataUpdated', $eventId);
     }
-
     
 }
