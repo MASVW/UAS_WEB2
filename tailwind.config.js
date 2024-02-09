@@ -18,6 +18,9 @@ export default {
             },
             animation:{
                 'bounce-slow': 'bounce 7s infinite'
+            },
+            height: {
+                '128' : '42rem'
             }
         },
     },
