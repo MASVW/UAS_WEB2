@@ -9,7 +9,7 @@
         <div class="mx-auto grid max-w-2xl sm:grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div class="lg:pr-8 lg:pt-4">
             <div class="lg:max-w-lg">
-              <div class="my-4 py-0 w-full h-128 overflow-y-auto">
+              <div class="my-4 py-0 w-full h-custom-42-rem overflow-y-auto">
                 <p class="mt-6 text-lg leading-8 text-gray-600">{{$event->eventDesc}}</p>
               </div>
             </div>
