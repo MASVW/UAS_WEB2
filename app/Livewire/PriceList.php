@@ -13,25 +13,27 @@ class PriceList extends Component
     public $event;
     public $currentPositon;
 
+    // Data For List Position 
     #[Computed]
     public function positions()
     {
         return Position::all();
     }
 
+    // Data for price list
     #[Computed]
     public function prices()
     {
         return Prices::where('events_id', $this->event->id)
             ->where('positions_id', $this->positionId)
+            ->with('positions')
             ->get();
     }
 
     public function mount ()
     {
-        $position = Position::find($this->positionId)
-            ->only(['desc']);
-        $this->currentPositon = $position['desc'];
+        $alternative = Position::where('id', $this->positionId)->select('desc')->first();
+        $this->currentPositon = $this->prices[0]['positions']['desc'] ?? $alternative['desc'];
     }
 
     function changePrice($id)

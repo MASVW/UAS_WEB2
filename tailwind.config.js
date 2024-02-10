@@ -20,7 +20,7 @@ export default {
                 'bounce-slow': 'bounce 7s infinite'
             },
             height: {
-                'custom-32-rem' : '32.75rem',
+                'custom-38-rem' : '38.75rem',
                 'custom-42-rem' : '42rem'
             },
             width:{
