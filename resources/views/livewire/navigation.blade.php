@@ -27,7 +27,6 @@
       <div class="2xl:text-lg lg-text-sm hidden lg:flex lg:flex-1 lg:justify-end">
         <div class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300">
           <a href="#" class="font-semibold leading-6 uppercase">Masuk</a>
-
         </div>
         <div class="rounded-full text-sky-500 mx-5 px-5 py-2 bg-white outline outline-sky-100 hover:bg-sky-500 hover:text-white hover:outline-none hover:scale-110 active:ring-sky-300 trasition duration-300 ">
           <a href="#" class="font-semibold leading-6 uppercase">Daftar</a>
@@ -65,7 +64,7 @@
           <div class="-my-6 divide-y divide-gray-500/10">
             <div class="space-y-2 py-6">
             @foreach ($this->events as $events)
-              <button wire:key="{{ $events->id }}" href="{{$events->slug}}" class="cursor-pointer block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold text-gray-900">{{$events->eventName}}</button>
+              <a wire:key="{{ $events->id }}" href="{{$events->slug}}" class="cursor-pointer block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold text-gray-900">{{$events->eventName}}</a>
             @endforeach
             <a href="#" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">NEWS </a>
             <a href="#" class="block hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 transition duration-300 rounded-lg px-5 py-2 font-semibold leading-6 text-gray-900">ABOUT US</a>

@@ -73,5 +73,8 @@ class User extends Authenticatable
     public function datas(){
         return $this->hasMany(Datas::class);
     }
+    public function feedbacks(){
+        return $this->hasMany(FeedBack::class);
+    }
 
 }

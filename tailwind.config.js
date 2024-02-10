@@ -25,7 +25,10 @@ export default {
             },
             width:{
                 "price": '90%'
-            }
+            },
+            boxShadow: {
+                'up-xl': '0px -7px 20px 0px rgba(0, 0, 0, 0.1)',
+              }
         },
     },
 
