@@ -22,6 +22,7 @@ class EventsFactory extends Factory
             'eventDesc' => $this->faker->paragraph(40),
             'eventDate' => $this->faker->date('Y_m_d'),
             'slug' => $this->faker->slug(),
+            'status' => 0
         ];
     }
 }

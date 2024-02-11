@@ -8,7 +8,7 @@
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="grid lg:grid-cols-2">
-        <div class="">
+        <div wire:poll.visible.60000ms>
           <h2 class="text-base font-semibold leading-7 text-indigo-600">{{$event->eventDate}}</h2>
           <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{$event->eventName}}</p>
         </div>
@@ -22,7 +22,7 @@
         <div class="lg:pr-8">
           <div class="lg:max-w-lg">
             <div class="my-4 py-0 w-full h-custom-42-rem overflow-y-auto">
-              <p class="mt-6 text-lg leading-8 text-gray-600">{{$event->eventDesc}}</p>
+              <p class="mt-6 text-lg leading-8 text-gray-600">{!!$event->eventDesc!!}</p>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ class Navigation extends Component
     #[Computed]
     public function events()
     {
-        return Events::all();
+        return Events::where('status', 1)->get();
     }
 
     // First Step before render

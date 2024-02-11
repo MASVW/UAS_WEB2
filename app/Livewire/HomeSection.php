@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class HomeSection extends Component
 {
-    public $id = 1;
+    public $id;
     protected $listeners = ['dataUpdated'];
     public $event;
     
@@ -16,6 +16,11 @@ class HomeSection extends Component
     public function events()
     {
         return Events::find($this->id);
+    }
+    public function mount()
+    {
+        $eventId = Events::where('status', 1)->select(['id'])->first();
+        $this->id = $eventId->id;
     }
 
     public function dataUpdated($id)

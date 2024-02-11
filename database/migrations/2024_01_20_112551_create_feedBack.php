@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id')->nullable(true)->references('id')->on('users');
-            $table->string('message', 2048)->nullable();
+            $table->string('firstName')->nullable();
+            $table->string('lastName')->nullable();
+            $table->string('subject')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->string('name')->nullable();
+            $table->string('message', 2048)->nullable();
         });
     }
 
