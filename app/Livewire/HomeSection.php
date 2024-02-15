@@ -2,35 +2,34 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\Navigation;
 use App\Models\Events;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class HomeSection extends Component
 {
     public $id;
-    protected $listeners = ['dataUpdated'];
-    public $event;
-    
+    public Events $event;
+    public $eventItem;
+    public $title;
+
     #[Computed]
     public function events()
     {
         return Events::find($this->id);
     }
+
     public function mount()
     {
-        $eventId = Events::where('status', 1)->select(['id'])->first();
-        $this->id = $eventId->id;
-    }
-
-    public function dataUpdated($id)
-    {
-        $this->id = $id;
-        $this->events();
+        $this->eventItem = $this->event ?? Events::where('status', 1)->get()[0];
+        $this->id = $this->eventItem->id;
+        $this->title = $this->eventItem->eventName;
     }
 
     public function render()
     {
-        return view('livewire.home-section');
+        return view('livewire.home-section')->title($this->title);
     }
 }

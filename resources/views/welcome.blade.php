@@ -11,25 +11,8 @@
     <!-- Styles -->
     @livewireStyles
 </head>
-<body x-data="{ scrollPosition: 0, showHiddenDiv: false, showForm: false }" x-init="() => { 
-        window.addEventListener('scroll', () => { 
-            scrollPosition = window.scrollY; 
-            showHiddenDiv = showHiddenDiv || scrollPosition > 50;
-            showForm = showForm || scrollPosition > 800;
-        });
-    }">
-    <livewire:navigation/>
+<body>
     <livewire:homeSection/>
     @livewireScripts
-    <script>
-    function formatCurrency(amount) {
-        const formatter = new Intl.NumberFormat('id-ID', {
-            style: 'currency',
-            currency: 'IDR'
-        });
-
-        return formatter.format(parseFloat(amount));
-    }
-</script>
 </body>
 </html>

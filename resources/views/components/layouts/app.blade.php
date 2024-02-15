@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Simposium Manado | {{$title ?? config('app.name', 'Hi!')}}</title>
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/alpine.min.js" defer></script>
 </head>
+
 <body x-data="{ scrollPosition: 0, showHiddenDiv: false, showForm: false }" x-init="() => { 
         window.addEventListener('scroll', () => { 
             scrollPosition = window.scrollY; 
@@ -19,11 +20,25 @@
             showForm = showForm || scrollPosition > 800;
         });
     }">
-    <livewire:navigation/>
+
+    <livewire:navigation :title='$title' wire:key="{{$title}}"/>
+
     <main>
         {{$slot}}
     </main>
-    
-    @livewireScripts
+
+    <livewire:footer>
+        @livewireScripts
+        <script>
+            function formatCurrency(amount) {
+                const formatter = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR'
+                });
+
+                return formatter.format(parseFloat(amount));
+            }
+        </script>
 </body>
+
 </html>

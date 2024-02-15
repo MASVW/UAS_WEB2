@@ -1,6 +1,24 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 
+use App\Livewire\AboutUs;
 use App\Livewire\Content;
+use App\Livewire\HomeSection;
+use App\Livewire\NewsContent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +32,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/konten', Content::class);
+Route::get('/', HomeSection::class)->name('home');
+Route::get('/agenda-acara', NewsContent::class)->name('news');
+Route::get('/tentang-kami', AboutUs::class)->name('about-us');
+Route::get('/{event:slug}', HomeSection::class)->name('content');
+
+
+
 
 Route::middleware([
     'auth:sanctum',

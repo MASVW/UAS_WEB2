@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\HomeSection;
 use App\Models\Events;
 use Livewire\Component;
 use Livewire\Attributes\Computed;
@@ -11,35 +12,20 @@ class Navigation extends Component
 {
     public $dataToSend;
     public $eventId;
+    public $title;
 
     // Taking Datas
+
     #[Computed]
     public function events()
     {
         return Events::where('status', 1)->get();
     }
 
-    // First Step before render
-    public function mount()
-    {
-        $data = $this->events;
-        $this->eventId = $data[0]["id"];
-    }
-
     // Rendering
     public function render()
     {
         // dd($this->eventId);
-        return view('livewire.navigation', [
-            "eventId" => $this->eventId
-        ]);
+        return view('livewire.navigation');
     }
-
-    // Button listener
-    public function sendToReceiver($eventId)
-    {
-        $this->eventId = $eventId;
-        $this->dispatch('dataUpdated', $eventId);
-    }
-    
 }
