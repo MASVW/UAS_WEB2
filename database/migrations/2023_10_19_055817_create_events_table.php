@@ -19,7 +19,7 @@ return new class extends Migration
             $table-> date('eventDate')->nullable(false);
             $table->string('slug')->nullable(false)->unique();
             $table->string('img')->nullable();
-            $table->boolean('status')->default(true);
+            $table->enum('status', ['Active', 'Upcoming', 'Non-Active'])->default('Upcoming');
             $table->timestamps();
         });
     }

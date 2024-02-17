@@ -19,7 +19,7 @@ class Navigation extends Component
     #[Computed]
     public function events()
     {
-        return Events::where('status', 1)->get();
+        return Events::where('status', 'Upcoming')->get();
     }
 
     // Rendering

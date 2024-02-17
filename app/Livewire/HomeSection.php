@@ -23,7 +23,7 @@ class HomeSection extends Component
 
     public function mount()
     {
-        $this->eventItem = $this->event ?? Events::where('status', 1)->get()[0];
+        $this->eventItem = $this->event ?? Events::where('status', 'Upcoming')->get()[0];
         $this->id = $this->eventItem->id;
         $this->title = $this->eventItem->eventName;
     }

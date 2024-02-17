@@ -16,13 +16,14 @@ class EventsFactory extends Factory
      */
     public function definition(): array
     {
+        $status = rand(0, 1) == 0 ? 'Active' : 'Non-Active';
         return [
             'eventName' => $this->faker->sentence(mt_rand(1,3)),
             'excerpt' => $this->faker->paragraph(10),
             'eventDesc' => $this->faker->paragraph(40),
             'eventDate' => $this->faker->date('Y_m_d'),
             'slug' => $this->faker->slug(),
-            'status' => 0
+            'status' => $status
         ];
     }
 }
