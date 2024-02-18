@@ -2,7 +2,7 @@
   <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
+        <a href="/" wire:navigate class="-m-1.5 p-1.5">
           <span class="sr-only">Simposium Manado</span>
           <p class="sm:text-3xl lg:text-xl 2xl:text-3xl font-bold bg-gradient-to-tl from-sky-800  to-sky-400 bg-clip-text text-transparent">Simposium Manado</p>
         </a>
@@ -17,7 +17,7 @@
       </div>
       <div class="2xl:text-lg lg:text-sm hidden lg:flex lg:gap-x-12">
         @foreach ($this->events as $event)
-        <button wire:key="{{ $event->id }}" href="/{{$event->slug}}" wire:navigate class="capitalize cursor-pointer 
+        <button wire:key="{{ $event->id }}" href="/event/{{$event->slug}}" wire:navigate class="capitalize cursor-pointer 
             @if(Route::is('content') && $title == $event->eventName)
               active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500 
             @elseif(Route::is('home')  && $title == $event->eventName) 
