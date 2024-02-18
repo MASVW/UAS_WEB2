@@ -22,10 +22,11 @@
     }">
 
     <livewire:navigation :title='$title' wire:key="{{$title}}"/>
-
+    <livewire:background/>
     <main>
         {{$slot}}
     </main>
+    <livewire:background/>
 
     <livewire:footer>
         

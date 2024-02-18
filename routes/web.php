@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 
 use App\Livewire\AboutUs;
