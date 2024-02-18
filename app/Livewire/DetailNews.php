@@ -19,7 +19,7 @@ class DetailNews extends Component
     #[Computed]
     public function item()
     {
-        return Events::where('status', $this->status)->paginate(4);
+        return Events::where('status', $this->status)->paginate(9);
     }
 
     public function render()

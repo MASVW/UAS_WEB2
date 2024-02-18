@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Http\Controllers\Navigation;
 use App\Models\Events;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 

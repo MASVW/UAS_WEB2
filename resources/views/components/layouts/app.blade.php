@@ -28,7 +28,7 @@
     </main>
 
     <livewire:footer>
-        @livewireScripts
+        
         <script>
             function formatCurrency(amount) {
                 const formatter = new Intl.NumberFormat('id-ID', {
@@ -39,6 +39,8 @@
                 return formatter.format(parseFloat(amount));
             }
         </script>
+
+    @livewireScripts
 </body>
 
 </html>
