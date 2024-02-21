@@ -4,7 +4,7 @@
       <div class="flex lg:flex-1">
         <a href="/" wire:navigate class="-m-1.5 p-1.5">
           <span class="sr-only">Simposium Manado</span>
-          <p class="sm:text-3xl lg:text-xl 2xl:text-3xl font-bold bg-gradient-to-tl from-sky-800  to-sky-400 bg-clip-text text-transparent">Simposium Manado</p>
+          <p class="text-3xl lg:text-2xl 2xl:text-3xl xl:text-lg font-bold bg-gradient-to-tl from-sky-800  to-sky-400 bg-clip-text text-transparent">Simposium Manado</p>
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -15,7 +15,7 @@
           </svg>
         </button>
       </div>
-      <div class="2xl:text-lg lg:text-sm hidden lg:flex lg:gap-x-12">
+      <div class="2xl:text-xl lg:text-lg hidden lg:flex lg:gap-x-12">
         @foreach ($this->events as $event)
         <button wire:key="{{ $event->id }}" href="/event/{{$event->slug}}" wire:navigate class="capitalize cursor-pointer 
             @if(Route::is('content') && $title == $event->eventName)
@@ -29,7 +29,7 @@
           {{$event->eventName}}
         </button>
         @endforeach
-        <button href="{{route('news')}}" wire:navigate class="capitalize cursor-pointer 
+        <button href="{{route('news')}}" wire:navigate class="hidden xl:block capitalize cursor-pointer 
             @if(Route::is('news'))
               active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500
               @else  
@@ -38,7 +38,7 @@
             font-semibold leading-6 rounded-full px-5 py-2 transition duration-300 hover:scale-110 hover:shadow-lg">
           agenda acara
         </button>
-        <a href="{{route('about-us')}}" wire:navigate class="capitalize cursor-pointer 
+        <a href="{{route('about-us')}}" wire:navigate class="hidden xl:block capitalize cursor-pointer 
             @if(Route::is('about-us'))
               active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500
               @else  
@@ -47,7 +47,7 @@
             font-semibold leading-6 rounded-full px-5 py-2 transition duration-300 hover:scale-110 hover:shadow-lg">
           Tentang kami</a>
       </div>
-      <div class="2xl:text-lg lg-text-sm hidden lg:flex lg:flex-1 lg:justify-end">
+      <div class="2xl:text-xl lg:text-lg hidden lg:flex lg:flex-1 lg:justify-end">
         @auth
         <div class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300">
           <a href="/" wire:navigate class="font-semibold leading-6 uppercase">
@@ -65,14 +65,14 @@
 
         @else
         <div 
-        class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg focus:ring focus:ring-sky-300 transition duration-300
+        class="rounded-full mx-5 px-5 py-2 hover:bg-slate hover:scale-110 hover:shadow-lg focus:ring focus:ring-sky-300 transition duration-300
         @if($title == 'Masuk')
         bg-sky-500 text-white hover:text-gray-900 hover:bg-white
         @else
-        active:bg-sky-800 active:text-white hover:bg-sky-500 hover:text-white
+        active:bg-sky-800 active:text-white hover:bg-sky-500 hover:text-white text-gray-900
         @endif
         ">
-          <a href="/masuk" wire:navigate class="font-semibold leading-6 uppercase">
+          <a href="/masuk" wire:navigate class="font-semibold leading-6 capitalize">
             Masuk
           </a>
         </div>
@@ -84,7 +84,7 @@
          @else
          text-sky-500 bg-white outline-sky-100 hover:bg-sky-500 hover:text-white hover:outline-none
          @endif">
-          <a href="/daftar" wire:navigate class="font-semibold leading-6 uppercase">Daftar</a>
+          <a href="/daftar" wire:navigate class="font-semibold leading-6 capitalize">Daftar</a>
         </div>
         @endauth
       </div>

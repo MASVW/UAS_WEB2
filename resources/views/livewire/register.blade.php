@@ -10,11 +10,11 @@
                 <div class="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form class="space-y-6" method="POST" action="{{route('register')}}">
                         @csrf
-                        <div class="grid grid-cols-2 gap-x-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                             <div>
                                 <label for="firstName" class="block text-sm font-medium leading-6 text-gray-900">Nama Depan</label>
                                 <div class="mt-2">
-                                    <input id="firstName" name="firstName" wire:model.blur="firstName" type="text" autocomplete="firstName" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input id="firstName" name="firstName" wire:model.blur="firstName" type="text" autocomplete="firstName" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                                 </div>
                                 @error('firstName')
                                 <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
@@ -23,7 +23,7 @@
                             <div>
                                 <label for="lastName" class="block text-sm font-medium leading-6 text-gray-900">Nama Belakang</label>
                                 <div class="mt-2">
-                                    <input id="lastName" name="lastName" wire:model.blur="lastName" type="text" autocomplete="lastName" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    <input id="lastName" name="lastName" wire:model.blur="lastName" type="text" autocomplete="lastName" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                                 </div>
                                 @error('lastName')
                                 <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
@@ -34,7 +34,7 @@
                         <div>
                             <label for="birthDate" class="block text-sm font-medium leading-6 text-gray-900">Tanggal Lahir</label>
                             <div class="mt-2">
-                                <input id="birthDate" name="birthDate" wire:model.lazy="birthDate" type="date" autocomplete="birthDate" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input id="birthDate" name="birthDate" wire:model.lazy="birthDate" type="date" autocomplete="birthDate" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                             </div>
                             @error('birthDate')
                             <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
@@ -44,7 +44,7 @@
                         <div>
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Alamat surel</label>
                             <div class="mt-2">
-                                <input id="email" name="email" wire:model.blur="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input id="email" name="email" wire:model.blur="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                             </div>
                             @error('email')
                             <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
@@ -57,7 +57,7 @@
                                 <div class="absolute inset-y-0 opacity-50 flex items-center left-3 text-sm">
                                     <span>ID (+62)</span>
                                 </div>
-                                <input type="tel" name="phone" wire:model.blur="phone" id="phone" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input type="tel" name="phone" wire:model.blur="phone" id="phone" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                             </div>
                             @error('phone')
                             <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
@@ -69,7 +69,7 @@
                                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Kata sandi</label>
                             </div>
                             <div class="mt-2">
-                                <input id="password" name="password" wire:model.blur="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input id="password" name="password" wire:model.blur="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                             </div>
                             @error('password')
                             <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
@@ -81,16 +81,16 @@
                                 <label for="password_confirmation" class="block text-sm font-medium leading-6 text-gray-900">Konfirmasi kata sandi</label>
                             </div>
                             <div class="mt-2">
-                                <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="password_confirmation" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="password_confirmation" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6">
                             </div>
                             @error('password_confirmation')
                             <label class="text-xs text-red-600 font-semibold">{{$message}}</label>
                             @enderror
                             <span>
-                                <div class="text-xs font-semibold">
+                                <div class="text-xs font-semibold text-gray-900">
                                     <ul>
-                                        <li>*Gabungan huruf besar & kecil, minimal 8 karakter</li>
-                                        <li>*Mencakup angka</li>
+                                        <li><span class="text-red-600">*</span>Gabungan huruf besar & kecil, minimal 8 karakter</li>
+                                        <li><span class="text-red-600">*</span>Mencakup angka</li>
                                     </ul>
                                 </div>
                             </span>
@@ -98,7 +98,7 @@
 
 
                         <div>
-                            <button type="submit" class="flex w-full justify-center rounded-md bg-sky-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Daftar</button>
+                            <button type="submit" class="flex w-full justify-center rounded-md bg-sky-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-600 active:bg-sky-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700">Daftar</button>
                         </div>
                     </form>
 

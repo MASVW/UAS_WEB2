@@ -6,8 +6,8 @@
           <!-- something -->
           @else
             @if($event->status == 'Upcoming')
-            <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Belum punya akun? <a class="font-semibold text-sky-500"><span class="absolute inset-0" aria-hidden="true"></span>Daftar Sekarang! <span aria-hidden="true">&rarr;</span></a>
+            <div href="/daftar" wire:navigate class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              Belum punya akun? <span class="font-semibold text-sky-500"><span class="absolute inset-0" aria-hidden="true"></span>Daftar Sekarang! <span aria-hidden="true">&rarr;</span></span>
             </div>
             @elseif($event->status == 'Active')
             <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
