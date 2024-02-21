@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simposium Manado | {{$title ?? config('app.name', 'Hi!')}}</title>
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -21,15 +21,15 @@
         });
     }">
 
-    <livewire:navigation :title='$title' wire:key="{{$title}}"/>
-    <livewire:background/>
+    <livewire:navigation :title='$title' wire:key="{{$title}}" />
+    <livewire:background />
     <main>
         {{$slot}}
     </main>
-    <livewire:background/>
+    <livewire:background />
 
     <livewire:footer>
-        
+
         <script>
             function formatCurrency(amount) {
                 const formatter = new Intl.NumberFormat('id-ID', {
@@ -38,10 +38,11 @@
                 });
 
                 return formatter.format(parseFloat(amount));
-            }
+            };
         </script>
 
-    @livewireScripts
-</body>
 
+        @livewireScripts
+        @yield('scripts')
+</body>
 </html>

@@ -2,9 +2,10 @@
 
 use App\Livewire\AboutUs;
 use App\Livewire\Authentication;
-use App\Livewire\Content;
 use App\Livewire\HomeSection;
 use App\Livewire\NewsContent;
+use App\Livewire\Register;
+use App\Livewire\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,10 @@ Route::get('/', HomeSection::class)->name('home');
 Route::get('/agenda-acara', NewsContent::class)->name('news');
 Route::get('/tentang-kami', AboutUs::class)->name('about-us');
 Route::get('/event/{event:slug}', HomeSection::class)->name('content');
-Route::get('/login', Authentication::class)->name('login');
+Route::get('/masuk', Authentication::class);
+Route::get('/daftar', Register::class);
+Route::get('/lupa-password', ResetPassword::class);
+
 
 
 

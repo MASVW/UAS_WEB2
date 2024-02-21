@@ -38,8 +38,7 @@
             font-semibold leading-6 rounded-full px-5 py-2 transition duration-300 hover:scale-110 hover:shadow-lg">
           agenda acara
         </button>
-        <a href="{{route('about-us')}}" wire:navigate
-        class="capitalize cursor-pointer 
+        <a href="{{route('about-us')}}" wire:navigate class="capitalize cursor-pointer 
             @if(Route::is('about-us'))
               active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500
               @else  
@@ -49,15 +48,45 @@
           Tentang kami</a>
       </div>
       <div class="2xl:text-lg lg-text-sm hidden lg:flex lg:flex-1 lg:justify-end">
+        @auth
         <div class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300">
-          <a href="{{route('login')}}" wire:navigate
-          class="font-semibold leading-6 uppercase">
-          Masuk
-        </a>
+          <a href="/" wire:navigate class="font-semibold leading-6 uppercase">
+            {{auth()->user()->firstName}}
+          </a>
         </div>
-        <div class="rounded-full text-sky-500 mx-5 px-5 py-2 bg-white outline outline-sky-100 hover:bg-sky-500 hover:text-white hover:outline-none hover:scale-110 active:ring-sky-300 trasition duration-300 ">
-          <a href="#" class="font-semibold leading-6 uppercase">Daftar</a>
+        <div class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white focus:ring focus:ring-sky-300 hover:rounded-full transition duration-300">
+          <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="font-semibold leading-6 uppercase">
+              KELUAR
+            </button>
+          </form>
         </div>
+
+        @else
+        <div 
+        class="rounded-full mx-5 px-5 py-2 text-gray-900 hover:bg-slate hover:scale-110 hover:shadow-lg focus:ring focus:ring-sky-300 transition duration-300
+        @if($title == 'Masuk')
+        bg-sky-500 text-white hover:text-gray-900 hover:bg-white
+        @else
+        active:bg-sky-800 active:text-white hover:bg-sky-500 hover:text-white
+        @endif
+        ">
+          <a href="/masuk" wire:navigate class="font-semibold leading-6 uppercase">
+            Masuk
+          </a>
+        </div>
+        <div 
+        class="rounded-full  mx-5 px-5 py-2 outline   hover:scale-110
+         active:ring-sky-300 trasition duration-300 
+         @if($title == 'Daftar')
+        bg-sky-500 text-white hover:bg-white hover:text-gray-900 hover:outline-none
+         @else
+         text-sky-500 bg-white outline-sky-100 hover:bg-sky-500 hover:text-white hover:outline-none
+         @endif">
+          <a href="/daftar" wire:navigate class="font-semibold leading-6 uppercase">Daftar</a>
+        </div>
+        @endauth
       </div>
     </nav>
 
