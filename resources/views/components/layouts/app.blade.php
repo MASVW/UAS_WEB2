@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simposium Manado | {{$title ?? config('app.name', 'Hi!')}}</title>
+    <title>Simposium Manado | {{$title ?? $title = config('app.name', 'Hi!')}}</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -13,13 +13,7 @@
     @livewireStyles
 </head>
 
-<body x-data="{ scrollPosition: 0, showHiddenDiv: false, showForm: false }" x-init="() => { 
-        window.addEventListener('scroll', () => { 
-            scrollPosition = window.scrollY; 
-            showHiddenDiv = showHiddenDiv || scrollPosition > 50;
-            showForm = showForm || scrollPosition > 800;
-        });
-    }">
+<body x-data="{bucket: true}">
 
     <livewire:navigation :title='$title' wire:key="{{$title}}" />
     <livewire:background />
@@ -28,6 +22,15 @@
     </main>
     <livewire:background />
 
+
+    @auth
+        <x-buttonBucket/>
+        <livewire:bucket :userId='auth()->user()->id'/>
+    @else
+        <x-buttonTop/>
+    @endauth
+
+    
     <livewire:footer>
 
         <script>

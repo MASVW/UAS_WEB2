@@ -30,7 +30,7 @@
         </button>
         @endforeach
         <button href="{{route('news')}}" wire:navigate class="hidden xl:block capitalize cursor-pointer 
-            @if(Route::is('news'))
+            @if(Route::is('news') || $this->title == 'Agenda Acara')
               active:bg-sky-800 active:text-white  hover:bg-slate-100 hover:text-black  text-white  bg-sky-500
               @else  
               active:bg-sky-800 active:text-white  hover:bg-sky-500 hover:text-white  text-gray-900 

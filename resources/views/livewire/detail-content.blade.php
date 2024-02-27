@@ -1,15 +1,11 @@
 <div class="mb-56">
   <livewire:background>    
-  <div x-show="showHiddenDiv"  
-    x-transition:enter="transition ease-out duration-1000" 
-    x-transition:enter-start="opacity-0 scale-90" 
-    x-transition:enter-end="opacity-100 scale-100" 
-    class="relative sm:py-32 z-20">
+  <div class="relative sm:py-32 z-20" id="detailContent">
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="grid lg:grid-cols-2">
         <div wire:poll.visible.60000ms>
-          <h2 class="text-base font-semibold leading-7 text-indigo-600">{{$event->eventDate}}</h2>
+          <h2 class="text-base font-semibold leading-7 text-sky-700">{{$event->eventDate}}</h2>
           <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{$event->eventName}}</p>
         </div>
         <div class="hidden lg:block my-5 font-bold uppercase text-2xl text-sky-700 text-center hover:text-sky-400 transition duration-500 hover:drop-shadow-lg">

@@ -26,7 +26,10 @@ class HomeSection extends Component
     {
         $this->eventItem = $this->event ?? Events::where('status', 'Upcoming')->get()[0];
         $this->id = $this->eventItem->id;
-        $this->title = $this->eventItem->eventName;
+       if ($this->eventItem->status == "Upcoming") {
+            $this->title = $this->eventItem->eventName;
+       }
+       else $this->title = 'Agenda Acara';
     }
 
     public function render()

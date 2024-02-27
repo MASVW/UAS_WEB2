@@ -8,7 +8,7 @@
                 </div>
 
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form class="space-y-6" method="post" action="/login">
+                    <form class="space-y-6" method="post" action="{{route('password.email')}}">
                         @csrf
                         <div>
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Alamat surel</label>
