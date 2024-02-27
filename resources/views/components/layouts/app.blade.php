@@ -13,7 +13,7 @@
     @livewireStyles
 </head>
 
-<body x-data="{bucket: true}">
+<body @auth x-data="{bucket: false}" @endauth>
 
     <livewire:navigation :title='$title' wire:key="{{$title}}" />
     <livewire:background />
@@ -24,7 +24,7 @@
 
 
     @auth
-        <x-buttonBucket/>
+        <x-buttonBucket />
         <livewire:bucket :userId='auth()->user()->id'/>
     @else
         <x-buttonTop/>
