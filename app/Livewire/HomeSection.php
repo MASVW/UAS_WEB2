@@ -2,11 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Http\Controllers\Navigation;
 use App\Models\Events;
+use Carbon\Carbon;
 use Livewire\Attributes\Computed;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class HomeSection extends Component
@@ -19,7 +17,16 @@ class HomeSection extends Component
     #[Computed]
     public function events()
     {
-        return Events::find($this->id);
+        $event = Events::find($this->id);
+        $this->transformDate($event);        
+        return $event;
+    }
+    
+    public function transformDate($data)
+    {
+        $date = Carbon::parse($data['eventDate']);
+        $data['eventDate'] = $date->format('d F Y');
+        return $data;
     }
 
     public function mount()

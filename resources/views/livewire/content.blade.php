@@ -3,34 +3,38 @@
       <div class="mx-auto max-w-4xl pt-48 pb-64 sm:py-48 lg:py-56">
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
           @auth
-            <!-- something -->
-            @if($event->status == 'Upcoming')
-            <div href="/daftar" wire:navigate class="cursor-pointer transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Belum punya akun? <span class="font-semibold text-sky-500"><span class="absolute inset-0" aria-hidden="true"></span>Daftar Sekarang! <span aria-hidden="true">&rarr;</span></span>
-            </div>
-            @elseif($event->status == 'Active')
-            <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              {{$event->eventName}} sedang berlangsung</a>
-            </div>
-            @else
-            <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              {{$event->eventName}} telah berlalu pada {{$event->eventDate}}</a>
-            </div>
-            @endif
+          <!-- something -->
+          @if($event->status == 'Upcoming')
+          <div @click="const element = document.getElementById('detailContent'); element.scrollIntoView({ behavior: 'smooth', block: 'start' });" class="cursor-pointer transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            <span class="font-semibold text-sky-500">
+              <span aria-hidden="true">
+                {{$event->eventDate}}
+              </span>
+            </span>
+          </div>
+          @elseif($event->status == 'Active')
+          <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            {{$event->eventName}} sedang berlangsung</a>
+          </div>
           @else
-            @if($event->status == 'Upcoming')
-            <div href="/daftar" wire:navigate class="cursor-pointer transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Belum punya akun? <span class="font-semibold text-sky-500"><span class="absolute inset-0" aria-hidden="true"></span>Daftar Sekarang! <span aria-hidden="true">&rarr;</span></span>
-            </div>
-            @elseif($event->status == 'Active')
-            <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              {{$event->eventName}} sedang berlangsung</a>
-            </div>
-            @else
-            <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              {{$event->eventName}} telah berlalu pada {{$event->eventDate}}</a>
-            </div>
-            @endif
+          <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            {{$event->eventName}} telah berlalu pada {{$event->eventDate}}</a>
+          </div>
+          @endif
+          @else
+          @if($event->status == 'Upcoming')
+          <div href="/daftar" wire:navigate class="cursor-pointer transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            Belum punya akun? <span class="font-semibold text-sky-500"><span class="absolute inset-0" aria-hidden="true"></span>Daftar Sekarang! <span aria-hidden="true">&rarr;</span></span>
+          </div>
+          @elseif($event->status == 'Active')
+          <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            {{$event->eventName}} sedang berlangsung</a>
+          </div>
+          @else
+          <div class="transition delay-100 hover:ring-sky-600 hover:shadow-lg relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            {{$event->eventName}} telah berlalu pada {{$event->eventDate}}</a>
+          </div>
+          @endif
           @endauth
         </div>
         <div class="text-center pb-48">
