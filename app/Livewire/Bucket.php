@@ -16,7 +16,7 @@ class Bucket extends Component
     public $bucket;
     public function mount(BucketService $buckets)
     {
-        $data = collect($buckets->getData());
+        $data = collect($buckets->getDataWithPricesEvents());
         $this->transformDate($data);
         $this->bucket = $data;
     }

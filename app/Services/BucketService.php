@@ -13,8 +13,8 @@ class BucketService
             $this->id = auth()->user()->id;
         }
     }
-    public function getData(): EloquentCollection
+    public function getDataWithPricesEvents(): EloquentCollection
     {
-        return Bucket::where('users_id', $this->id)->get();
+        return Bucket::where('users_id', $this->id)->with('prices', 'events')->get();
     }
 }
