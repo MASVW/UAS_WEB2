@@ -1,4 +1,5 @@
-<div x-show="bucket" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100 " x-transition:leave-end="opacity-0 scale-90" class="relative z-20">
+
+<div x-show="bucket" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100 " x-transition:leave-end="opacity-0 scale-90" class="relative z-30">
 
 
     <div class="fixed inset-0 bg-gray-500 bg-opacity-50 transition-opacity"></div>

@@ -2,35 +2,30 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\BucketsController;
 use App\Models\Bucket as ModelsBucket;
 use App\Models\Events;
+use App\Services\BucketService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Carbon\Carbon;
 
 class Bucket extends Component
 {
-    public $userId = '';
-    #[Computed]
-    public function bucket()
+    public string $userId = '';
+    public $bucket;
+    public function mount(BucketService $buckets)
     {
-        $buckets = ModelsBucket::where('users_id', $this->userId)->with('prices.positions', 'events')->get();
-        $bucketCollection = collect($buckets);
-        $this->transformDate($bucketCollection);
-        return $bucketCollection;
+        $data = collect($buckets->getData());
+        $this->transformDate($data);
+        $this->bucket = $data;
     }
-    #[Computed]
-    public function event()
-    {
-        return Events::where('status', 'Upcoming')->with('prices')->get();
-    }
-
     public function transformDate($data)
     {
-        $data->transform(function ($item) {
-            $eventDate = Carbon::parse($item->events->eventDate);
-            $item->events->eventDate = $eventDate->format('d F Y');
-            return $item;
+        $data->transform(function ($bucket) {
+            $eventDate = Carbon::parse($bucket->events->eventDate);
+            $bucket->events->eventDate = $eventDate->format('d F Y');
+            return $bucket;
         });
     }
 

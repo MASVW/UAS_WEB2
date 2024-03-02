@@ -14,22 +14,28 @@ class Bucket extends Model
     protected $table = 'buckets';
     protected $primaryKey = 'id';
     protected $keyType  = 'int';
-    public $timestamp = true; 
+    public $timestamp = true;
     public $incrementing = true;
-    public function payments(){
+
+    public function payments(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Payment::class);
     }
-    public function prices(){
+    public function prices(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Prices::class);
     }
-    
-    public function users(){
+
+    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
-    public function datas(){
+    public function datas(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Datas::class);
     }
-    public function events(){
+    public function events(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Events::class);
     }
 

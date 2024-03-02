@@ -22,6 +22,7 @@ class Navigation extends Component
         return Events::where('status', 'Upcoming')->get();
     }
 
+
     // Rendering
     public function render()
     {

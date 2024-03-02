@@ -13,7 +13,7 @@
     @livewireStyles
 </head>
 
-<body @auth x-data="{bucket: true}" @endauth>
+<body @auth x-data="{bucket: false}" @endauth>
 
     <livewire:navigation :title='$title' wire:key="{{$title}}" />
     <livewire:background />
