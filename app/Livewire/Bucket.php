@@ -16,7 +16,7 @@ class Bucket extends Component
     public $bucket;
     public function mount(BucketService $buckets)
     {
-        $data = collect($buckets->getDataWithPricesEvents());
+        $data = $buckets->getDataWithPricesEvents();
         $this->transformDate($data);
         $this->bucket = $data;
     }
@@ -27,6 +27,14 @@ class Bucket extends Component
             $bucket->events->eventDate = $eventDate->format('d F Y');
             return $bucket;
         });
+    }
+    public function removeItem(BucketService $buckets, $id)
+    {
+        $info = $buckets->removeItem($id);
+        $data = $buckets->getDataWithPricesEvents();
+        $this->transformDate($data);
+        $this->bucket = $data;
+        flash()->addSuccess($info);
     }
 
     public function render()

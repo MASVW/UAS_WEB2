@@ -1,5 +1,5 @@
 <div class="mb-56">
-  <livewire:background>    
+  <livewire:background>
   <div class="relative sm:py-32 z-20" id="detailContent">
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -30,11 +30,8 @@
           <div>
             <livewire:price-list :event="$event"/>
           </div>
-        </dl>
+        </dl>`
 
-        <!-- Foto -->
-        <!-- <img src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442"> -->
-      
       </div>
     </div>
   </div>

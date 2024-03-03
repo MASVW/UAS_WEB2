@@ -5,10 +5,11 @@ namespace App\Services;
 use App\Models\Bucket;
 use http\Env\Response;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use PHPUnit\Exception;
 
 class BucketService
 {
-    public function __construct(public int $userId, public int $id)
+    public function __construct(public int $userId)
     {
         if (auth()->check()) {
             $this->userId = auth()->user()->id;
@@ -23,25 +24,20 @@ class BucketService
     {
         return Bucket::where('users_id', $this->userId)->with('prices', 'events')->get();
     }
-
-    //Delete Item on Bucket
-
-    public function removeItem()
+    public function removeItem($itemId): string
     {
         try {
-            $item = Bucket::find('id', $this->id);
-            $item->delete();
-            $data=[
-                'status'=>'1',
-                'message'=>'success'
-            ];
+            $data = Bucket::findOrFail($itemId);
+            if ($data)
+            {
+                $data->delete();
+                return 'Berhasil menghapus item.';
+            }
         }
-        catch (error) {
-            $data=[
-                'status'=>'0',
-                'message'=>'failed'
-            ];
+        catch (Exception $exception)
+        {
+            return 'Terjadi Error.';
         }
-            return response()->json($data);
     }
+
 }
