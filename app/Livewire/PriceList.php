@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Position;
 use App\Models\Prices;
+use App\Services\BucketService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
@@ -13,7 +14,7 @@ class PriceList extends Component
     public $event;
     public $currentPositon;
 
-    // Data For List Position 
+    // Data For List Position
     #[Computed]
     public function positions()
     {
@@ -41,6 +42,24 @@ class PriceList extends Component
         $this->positionId = $id;
         $this->prices();
         $this->mount();
+    }
+
+    public function addToChart(BucketService $bucketService,$eventId, $pricesId)
+    {
+        $data = Prices::findOrfail($pricesId);
+        $info = $bucketService->addItem($data);
+
+        $status = http_response_code();
+        if ($status === 200) {
+            $this->dispatch('bucketUpdated')->to(Bucket::class);
+            flash()->addSuccess($info);
+        } elseif ($status === 400)
+        {
+            flash()->addError($info);
+        }
+        else{
+            flash()->addWarning($info);
+        }
     }
 
     public function render()

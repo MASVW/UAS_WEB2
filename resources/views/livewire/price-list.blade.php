@@ -8,8 +8,8 @@
         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
       </svg>
     </button>
-    <span 
-    x-show="price" 
+    <span
+    x-show="price"
     x-transition:enter="transition ease-out duration-100"
     x-transition:enter-start="opacity-0 scale-95"
     x-transition:enter-end="opacity-100 scale-100"
@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="flex justify-end w-full">
-          <button class="transition hover:bg-sky-600 active:bg-sky-700 my-auto px-4 py-2 rounded-lg bg-sky-500 border text-white font-semibold uppercase">
+          <button wire:click="addToChart({{$this->event->id}}, {{$price->id}})" class="transition hover:bg-sky-600 active:bg-sky-700 my-auto px-4 py-2 rounded-lg bg-sky-500 border text-white font-semibold uppercase">
             <div class="flex">
                 <p class="mr-2">TAMBAH</p>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -65,7 +65,7 @@
             </div>
           </button>
         </div>
-      </div>      
+      </div>
       @endforeach
   </div>
 </div>

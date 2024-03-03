@@ -14,6 +14,15 @@ class Bucket extends Component
 {
     public string $userId = '';
     public $bucket;
+    public function getListeners(){
+        return ['bucketUpdated'];
+    }
+    public function bucketUpdated(BucketService $buckets)
+    {
+        $data = $buckets->getDataWithPricesEvents();
+        $this->transformDate($data);
+        $this->bucket = $data;
+    }
     public function mount(BucketService $buckets)
     {
         $data = $buckets->getDataWithPricesEvents();
@@ -30,11 +39,21 @@ class Bucket extends Component
     }
     public function removeItem(BucketService $buckets, $id)
     {
-        $info = $buckets->removeItem($id);
-        $data = $buckets->getDataWithPricesEvents();
-        $this->transformDate($data);
-        $this->bucket = $data;
-        flash()->addSuccess($info);
+        try {
+            $info = $buckets->removeItem($id);
+            $this->dispatch('bucketUpdated')->self();
+            $status = http_response_code();
+            if ($status === 200){
+                flash()->addSuccess($info);
+            }
+            else{
+                flash()->addError($info);
+            }
+        }
+        catch (\ErrorException $exception){
+            flash()->addError('Terjadi kesalahn. Silahkan ulangi kembali');
+        }
+
     }
 
     public function render()

@@ -18,10 +18,10 @@ class HomeSection extends Component
     public function events()
     {
         $event = Events::find($this->id);
-        $this->transformDate($event);        
+        $this->transformDate($event);
         return $event;
     }
-    
+
     public function transformDate($data)
     {
         $date = Carbon::parse($data['eventDate']);
