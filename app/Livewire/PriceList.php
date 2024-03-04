@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Position;
 use App\Models\Prices;
 use App\Services\BucketService;
+use App\Services\LoadingService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
@@ -48,7 +49,6 @@ class PriceList extends Component
     {
         $data = Prices::findOrfail($pricesId);
         $info = $bucketService->addItem($data);
-
         $status = http_response_code();
         if ($status === 200) {
             $this->dispatch('bucketUpdated')->to(Bucket::class);

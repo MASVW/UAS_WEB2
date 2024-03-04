@@ -6,6 +6,7 @@ use App\Http\Controllers\BucketsController;
 use App\Models\Bucket as ModelsBucket;
 use App\Models\Events;
 use App\Services\BucketService;
+use App\Services\LoadingService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Carbon\Carbon;
@@ -37,14 +38,16 @@ class Bucket extends Component
             return $bucket;
         });
     }
-    public function removeItem(BucketService $buckets, $id)
+    public function removeItem(BucketService $buckets, LoadingService $loadService, $id)
     {
+        $loadService->startLoading();
         try {
             $info = $buckets->removeItem($id);
-            $this->dispatch('bucketUpdated')->self();
+            $this->bucketUpdated($buckets);
             $status = http_response_code();
             if ($status === 200){
                 flash()->addSuccess($info);
+                $loadService->stopLoading();
             }
             else{
                 flash()->addError($info);
@@ -53,7 +56,6 @@ class Bucket extends Component
         catch (\ErrorException $exception){
             flash()->addError('Terjadi kesalahn. Silahkan ulangi kembali');
         }
-
     }
 
     public function render()

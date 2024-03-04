@@ -1,12 +1,27 @@
 <div x-data="{ price: false}"
     class="text-left mx-auto items-center flex flex-col w-full">
+
+
+    <div wire:loading wire:target="addToChart">
+        <x-loading-Modals>{{__('Sedang menambahkan item')}}</x-loading-Modals>
+    </div>
+
+
     <!-- Menu Button -->
   <div class="w-full relative">
-    <button wire:key="{{$currentPositon}}" @click="price = ! price" type="button" class="focus:ring-blue-500 hover:underline active:bg-sky-700 hover:underline-offset-2 active:text-white transition uppercase inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-sky-400 hover:text-white" id="menu-button" aria-expanded="true" aria-haspopup="true">
-      Jenis Harga : {{$currentPositon}}
-      <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-      </svg>
+
+    <button wire:key="{{$currentPositon}}" @click="price = ! price" type="button" class="focus:ring-blue-500 hover:underline active:bg-sky-700 hover:underline-offset-2 active:text-white transition uppercase w-full gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-sky-400 hover:text-white" id="menu-button" aria-expanded="true" aria-haspopup="true">
+      <div class="flex justify-center items-center">
+          <div>Jenis Harga : {{$currentPositon}}</div>
+          <div>
+              <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+              </svg>
+          </div>
+          <div wire:loading wire:target="changePrice" class="ps-2">
+              <x-loading/>
+          </div>
+      </div>
     </button>
     <span
     x-show="price"
@@ -31,7 +46,7 @@
   <div wire:poll.visible.15000ms class="mt-3 relative rounded-xl w-full overflow-y-scroll overflow-hidden h-custom-38-rem max-w-screen-md mx-auto">
     @foreach($this->prices as $price)
 
-      <div class="animate-none mx-auto w-price  my-5 p-5 grid bg-slate-100 bg-opacity-15 grid-cols-2 border border-sky-700 border-opacity-50 rounded-xl hover:shadow-lg hover:border-sky-600 hover:border-opacity-100 transition hover:scale-110 duration-200">
+      <div wire:loading.remove class="animate-none mx-auto w-price  my-5 p-5 grid bg-slate-100 bg-opacity-15 grid-cols-2 border border-sky-700 border-opacity-50 rounded-xl hover:shadow-lg hover:border-sky-600 hover:border-opacity-100 transition hover:scale-110 duration-200">
         <div>
           <div class="relative pl-9">
             <dt class="inline font-semibold text-gray-900">

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Bucket;
+use App\Models\Events;
 use http\Env\Response;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Facades\Request;
@@ -21,7 +22,8 @@ class BucketService
     {
         try {
             $item = $data;
-            if ($item)
+            $validatedItem = Events::findOrfail($item->events_id)->only(["status"])['status'] === "Upcoming" ? true : false;
+            if ($validatedItem)
             {
                 $bucket = Bucket::create([
                     "users_id" => $this->userId,
@@ -34,19 +36,18 @@ class BucketService
                 }
                 else{
                     http_response_code(400);
-                    throw new \ErrorException('Terjadi Kesalahan');
+                    throw new \ErrorException('Terjadi kesalahan');
                 }
             }
             else
             {
                 http_response_code(400);
-                throw new \ErrorException('Terjadi Kesalahan');
+                throw new \ErrorException("Masa pendaftaran telah usai");
             }
         }
         catch (\ErrorException $exception)
         {
-            http_response_code(500);
-            return 'Terjadi kesalahan. Ulangi bebrapa saat lagi';
+            return $exception->getMessage();
         }
     }
 
