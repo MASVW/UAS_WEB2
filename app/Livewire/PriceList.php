@@ -6,48 +6,43 @@ use App\Models\Position;
 use App\Models\Prices;
 use App\Services\BucketService;
 use App\Services\LoadingService;
+use App\Services\PositionService;
+use App\Services\PriceService;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class PriceList extends Component
 {
-    public $positionId = 1;
     public $event;
+    public $eventId;
     public $currentPositon;
+    public $price;
+    public $prices;
+    public $positions;
+    public $positionId;
 
-    // Data For List Position
-    #[Computed]
-    public function positions()
+    public function mount(PriceService $priceService, PositionService $positionService)
     {
-        return Position::all();
+        $this->eventId = $this->event->id;
+
+        $this->positions = $positionService->getAllPosition();
+        $this->positionId = $this->positions[0]['id'];
+        $namedPosition = $positionService->getPositionNameById($this->positionId);
+        $this->currentPositon = $namedPosition;
+
+        $this->prices = $priceService->getPricesWithEcventAndPosition($this->eventId, $this->positionId);
     }
 
-    // Data for price list
-    #[Computed]
-    public function prices()
-    {
-        return Prices::where('events_id', $this->event->id)
-            ->where('positions_id', $this->positionId)
-            ->with('positions')
-            ->get();
-    }
-
-    public function mount ()
-    {
-        $alternative = Position::where('id', $this->positionId)->select('desc')->first();
-        $this->currentPositon = $this->prices[0]['positions']['desc'] ?? $alternative['desc'];
-    }
-
-    function changePrice($id)
+    function changePrice(PositionService $positionService,PriceService $priceService ,$id)
     {
         $this->positionId = $id;
-        $this->prices();
-        $this->mount();
+        $this->prices =  $priceService->getPricesWithEcventAndPosition($this->eventId, $this->positionId);
+        $this->currentPositon = $positionService->getPositionNameById($this->positionId);
     }
 
-    public function addToChart(BucketService $bucketService,$eventId, $pricesId)
+    public function addToChart(PriceService $priceService ,BucketService $bucketService,$eventId, $pricesId)
     {
-        $data = Prices::findOrfail($pricesId);
+        $data =  $priceService->getPricesById($pricesId);
         $info = $bucketService->addItem($data);
         $status = http_response_code();
         if ($status === 200) {

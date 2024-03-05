@@ -37,9 +37,7 @@
                             <div class="flex mt-2 pe-2 rounded-lg border-2 border-stone-500 hover:scale-105 transition" x-bind:class="{ 'scale-105': detailBucket }">
                                 <div class="flex-1 p-2 flex">
                                     <div class="flex-none my-auto">
-                                        <form action="">
-                                            <input class="rounded-full" type="checkbox" name="id" id="">
-                                        </form>
+                                        <input class="rounded-full" type="checkbox" wire:model="selectedItem" value="{{$item->id}}">
                                     </div>
                                     <div class="flex-none ms-3 my-auto">
                                         {{$loop->iteration}}
@@ -74,11 +72,11 @@
                                         <div>
                                             <a href="/event/{{$item->events->slug}}" wire:navigate class="font-semibold underline-offset-1 underline">{{$item->events->eventName}}</a>
                                         </div>
-                                        <div class="flex">
-                                            <div class="flex-1">
+                                        <div class="flex pe-3">
+                                            <div class="grow">
                                                 <table>
-                                                    <tbody class="text-xs sm:text-sm">
-                                                        <tr>
+                                                    <tbody class="text-xs sm:text-sm inline-block align-top">
+                                                        <tr class="items-start">
                                                             <td colspan="2">Paket</td>
                                                             <td></td>
                                                             <td>:</td>
@@ -105,7 +103,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="flex-0 mx-auto sm:m-auto">
+                                            <div class="flex-1 mx-auto ps-3 sm:m-auto">
                                                 <button x-on:click="detailBucket = !detailBucket; $wire.removeItem({{$item->id}})">
                                                     <svg class="h-4 sm:h-6 w-4 sm:w-6" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"></path>
@@ -123,7 +121,10 @@
 
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button x-on:click.stop="bucket = false" type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-stone-700 active:bg-stone-800 active:ring active:ring-stone-500 hover:text-white sm:mt-0 sm:w-auto transition">Tutup</button>
+                    <div>
+                        <button x-on:click="bucket = false; $wire.reset()" type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-stone-700 active:bg-stone-800 active:ring active:ring-stone-500 hover:text-white sm:mt-0 sm:w-auto transition">Tutup</button>
+                        <button type="submit" wire:click="checkOut" class="mt-3 inline-flex w-full justify-center rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-sky-600 active:bg-sky-700 active:ring active:ring-sky-300 hover:text-white sm:mt-0 sm:w-auto transition">Lanjutkan</button>
+                    </div>
                 </div>
             </div>
         </div>

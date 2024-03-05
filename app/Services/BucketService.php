@@ -13,9 +13,22 @@ class BucketService
 {
     public function __construct(public int $userId)
     {
-        if (auth()->check()) {
-            $this->userId = auth()->user()->id;
+        try {
+            if (auth()->check()) {
+                $this->userId = auth()->user()->id;
+            }
+            else {
+                http_response_code(400);
+                throw new \ErrorException("Silahkan login terlebih dahulu");
+            }
+        } catch (\ErrorException $error){
+            return $error->getMessage();
         }
+    }
+
+    public function getDataWithPricesEvents(): EloquentCollection
+    {
+        return Bucket::where('users_id', $this->userId)->with('prices', 'events')->get();
     }
 
     public function addItem($data): string
@@ -50,11 +63,6 @@ class BucketService
             return $exception->getMessage();
         }
     }
-
-    public function getDataWithPricesEvents(): EloquentCollection
-    {
-        return Bucket::where('users_id', $this->userId)->with('prices', 'events')->get();
-    }
     public function removeItem($itemId): string
     {
         try {
@@ -67,13 +75,12 @@ class BucketService
             }
             else{
                 http_response_code(400);
-                return 'Terjadi Error. Silahkan ulangi kembali';
+                return \ErrorException('Terjadi Error. Silahkan ulangi kembali');
             }
         }
-        catch (Exception $exception)
+        catch (\ErrorException $exception)
         {
-            http_response_code(400);
-            return 'Terjadi Error. Silahkan ulangi kembali';
+            return $exception->getMessage();
         }
     }
 

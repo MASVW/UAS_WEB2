@@ -46,7 +46,7 @@
   <div wire:poll.visible.15000ms class="mt-3 relative rounded-xl w-full overflow-y-scroll overflow-hidden h-custom-38-rem max-w-screen-md mx-auto">
     @foreach($this->prices as $price)
 
-      <div wire:loading.remove class="animate-none mx-auto w-price  my-5 p-5 grid bg-slate-100 bg-opacity-15 grid-cols-2 border border-sky-700 border-opacity-50 rounded-xl hover:shadow-lg hover:border-sky-600 hover:border-opacity-100 transition hover:scale-110 duration-200">
+      <div class="animate-none mx-auto w-price  my-5 p-5 grid bg-slate-100 bg-opacity-15 grid-cols-2 border border-sky-700 border-opacity-50 rounded-xl hover:shadow-lg hover:border-sky-600 hover:border-opacity-100 transition hover:scale-110 duration-200">
         <div>
           <div class="relative pl-9">
             <dt class="inline font-semibold text-gray-900">

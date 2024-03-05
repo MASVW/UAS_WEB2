@@ -172,7 +172,8 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\BucketServiceProvider::class,
-        App\Providers\LoadingServiceProvider::class
+        App\Providers\PriceServiceProviders::class,
+        App\Providers\PositionServiceProvider::class
     ])->toArray(),
 
     /*

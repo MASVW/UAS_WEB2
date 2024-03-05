@@ -7,23 +7,25 @@ use App\Models\Bucket as ModelsBucket;
 use App\Models\Events;
 use App\Services\BucketService;
 use App\Services\LoadingService;
+use http\Env\Request;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Carbon\Carbon;
+use Ramsey\Collection\Collection;
 
 class Bucket extends Component
 {
     public string $userId = '';
     public $bucket;
+    public $selectedItem = [];
+
+    //Collection
+    public $id;
+
     public function getListeners(){
         return ['bucketUpdated'];
     }
-    public function bucketUpdated(BucketService $buckets)
-    {
-        $data = $buckets->getDataWithPricesEvents();
-        $this->transformDate($data);
-        $this->bucket = $data;
-    }
+
     public function mount(BucketService $buckets)
     {
         $data = $buckets->getDataWithPricesEvents();
@@ -54,8 +56,19 @@ class Bucket extends Component
             }
         }
         catch (\ErrorException $exception){
-            flash()->addError('Terjadi kesalahn. Silahkan ulangi kembali');
+            flash()->addError('Terjadi kesalahan. Silahkan ulangi kembali');
         }
+    }
+    public function bucketUpdated(BucketService $buckets)
+    {
+        $data = $buckets->getDataWithPricesEvents();
+        $this->transformDate($data);
+        $this->bucket = $data;
+    }
+    public function checkOut()
+    {
+        $item = collect($this->selectedItem);
+
     }
 
     public function render()
