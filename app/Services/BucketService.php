@@ -13,16 +13,8 @@ class BucketService
 {
     public function __construct(public int $userId)
     {
-        try {
-            if (auth()->check()) {
-                $this->userId = auth()->user()->id;
-            }
-            else {
-                http_response_code(400);
-                throw new \ErrorException("Silahkan login terlebih dahulu");
-            }
-        } catch (\ErrorException $error){
-            return $error->getMessage();
+        if (auth()->check()) {
+            $this->userId = auth()->user()->id;
         }
     }
 

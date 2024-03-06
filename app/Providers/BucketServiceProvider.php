@@ -13,7 +13,7 @@ class BucketServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(BucketService::class, function ($app) {
-            return new BucketService(auth()->check() ? auth()->user()->id : null);
+            return new BucketService(auth()->check() ? auth()->user()->id : 0);
         });
     }
 

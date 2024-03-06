@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -13,39 +13,39 @@
     @livewireStyles
 </head>
 
-<body @auth x-data="{bucket: false}" @else x-data=""  @endauth>
+<body @auth x-data="{bucket: false}" @else x-data="" @endauth>
 
-    <livewire:navigation :title='$title' wire:key="{{$title}}" />
-    <livewire:background />
-    <main>
-        {{$slot}}
-    </main>
-    <livewire:background />
-
-
-    @auth
-        <x-buttonBucket />
-        <livewire:bucket :userId='auth()->user()->id'/>
-    @else
-        <x-buttonTop/>
-    @endauth
+<livewire:navigation :title='$title' wire:key="{{$title}}"/>
+<livewire:background/>
+<main>
+    {{$slot}}
+</main>
+<livewire:background/>
 
 
-    <livewire:footer>
-
-        <script>
-            function formatCurrency(amount) {
-                const formatter = new Intl.NumberFormat('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR'
-                });
-
-                return formatter.format(parseFloat(amount));
-            };
-        </script>
+@auth
+    <x-buttonBucket/>
+    <livewire:bucket :userId='auth()->user()->id'/>
+@else
+    <x-buttonTop/>
+@endauth
 
 
-        @livewireScripts
-        @yield('scripts')
+<livewire:footer>
+
+    <script>
+        function formatCurrency(amount) {
+            const formatter = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
+
+            return formatter.format(parseFloat(amount));
+        };
+    </script>
+
+
+@livewireScripts
+@yield('scripts')
 </body>
 </html>
