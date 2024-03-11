@@ -1,4 +1,7 @@
 <div>
+    @if(session('error'))
+        {{flash()->addError(session('error'))}};
+    @endif
     <div class="relative isolate px-6 pt-14 lg:px-8 z-20">
         <div class="mx-auto max-w-7xl pt-52 pb-24 sm:pt-64 sm:pb-24 lg:pt-64 lg:pb-40">
             <div class="flex min-h-full flex-col justify-center px-6">

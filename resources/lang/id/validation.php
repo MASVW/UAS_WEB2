@@ -6,6 +6,7 @@ return [
     'email' => 'Format :attribute tidak valid.',
     'regex' => 'Format pada kolom :attribute tidak valid.',
     'alpha' => 'Kolom :attribute hanya boleh berisi huruf..',
+    'phone' => 'Kolom :attribute tidak valid.',
     'unique' => ':attribute sudah digunakan. Silahkan pilih :attribute lain.',
     'max' => [
         'string' => 'Panjang karakter pada kolom :attribute maksimal :max karakter.',

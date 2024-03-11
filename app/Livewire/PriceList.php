@@ -23,6 +23,8 @@ class PriceList extends Component
 
     public function mount(PriceService $priceService, PositionService $positionService)
     {
+        $this->dispatch('initTippy');
+
         $this->eventId = $this->event->id;
 
         $this->positions = $positionService->getAllPosition();
@@ -38,7 +40,7 @@ class PriceList extends Component
         $this->positionId = $id;
         $this->prices =  $priceService->getPricesWithEcventAndPosition($this->eventId, $this->positionId);
         $this->currentPositon = $positionService->getPositionNameById($this->positionId);
-    }
+}
 
     public function addToChart(PriceService $priceService ,BucketService $bucketService,$eventId, $pricesId)
     {

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simposium Manado | {{$title ?? $title = config('app.name', 'Hi!')}}</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -41,11 +43,9 @@
             });
 
             return formatter.format(parseFloat(amount));
-        };
+        }
     </script>
-
-
-@livewireScripts
-@yield('scripts')
+    @livewireScripts
+    @yield('scripts')
 </body>
 </html>

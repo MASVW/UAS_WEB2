@@ -173,7 +173,9 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         App\Providers\BucketServiceProvider::class,
         App\Providers\PriceServiceProviders::class,
-        App\Providers\PositionServiceProvider::class
+        App\Providers\PositionServiceProvider::class,
+        App\Providers\UserInfoServiceProvider::class,
+        App\Providers\ErrorServiceProvider::class
     ])->toArray(),
 
     /*

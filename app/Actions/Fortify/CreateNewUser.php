@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Propaganistas\LaravelPhone\PhoneNumber;
 use PhpOffice\PhpSpreadsheet\Worksheet\Validations;
 
 class CreateNewUser implements CreatesNewUsers
@@ -28,14 +29,16 @@ class CreateNewUser implements CreatesNewUsers
             'lastName' => ['required', 'string', 'max:15'],
             'birthDate' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:30', 'unique:users'],
-            'phone' => ['required', 'string', 'unique:users'],
+            'phone' => ['phone:ID','unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ],[
             'email.unique' => __('Validation.custom.email.unique'),
             'phone.unique' => __('Validation.custom.phone.unique')
         ])->validate();
-        
+        $phone = new PhoneNumber($input['phone'], 'ID');
+        $formattedPhone = $phone->formatForMobileDialingInCountry('ID');
+
         $firstName = $input['firstName'];
         $lastName = $input['lastName'];
         $email = $input['email'];
@@ -46,7 +49,7 @@ class CreateNewUser implements CreatesNewUsers
             'lastName' => $lastName,
             'birthDate' => $input['birthDate'],
             'email' => $email,
-            'phone' => $input['phone'],
+            'phone' => $formattedPhone,
             'password' => Hash::make($input['password']),
         ]);
     }

@@ -6,6 +6,8 @@ use App\Livewire\HomeSection;
 use App\Livewire\NewsContent;
 use App\Livewire\Register;
 use App\Livewire\ResetPassword;
+use App\Livewire\Profile;
+use App\Livewire\UpdateProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +28,8 @@ Route::get('/event/{event:slug}', HomeSection::class)->name('content');
 Route::get('/masuk', Authentication::class);
 Route::get('/daftar', Register::class);
 Route::get('/lupa-password', ResetPassword::class);
+Route::get('/profil/{user:firstName}', Profile::class)->name('profil');
+Route::get('/profil/{user:firstName}/update', UpdateProfile::class)->name('profil.update');
 
 
 
