@@ -85,22 +85,7 @@ So are you ready to 𝘁𝗮𝗸𝗲 𝘁𝗵𝗲 𝗰𝗵𝗮𝗻𝗰𝗲, 𝗮
             "desc" => 'Mahasiswa',
         ]);
         Position::create([
-            "desc" => 'Dokter',
-        ]);
-        Position::create([
-            "desc" => 'Spesialis',
-        ]);
-        Position::create([
-            "desc" => 'Spesialis / PPDS',
-        ]);
-        Position::create([
-            "desc" => 'Konsultan',
-        ]);
-        Position::create([
-            "desc" => 'Perawat',
-        ]);
-        Position::create([
-            "desc" => 'Bidan',
+            "desc" => 'Publik',
         ]);
         Prices::factory(40)->create();
     }
