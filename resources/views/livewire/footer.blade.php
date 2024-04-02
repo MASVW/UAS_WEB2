@@ -1,18 +1,15 @@
 <footer class="rounded-tl-3xl rounded-tr-3xl shadow-up-xl mt-40 z-20">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between">
-          <div class="mb-6 md:mb-0 text-sky-700 font-semibold text-2xl">
-              <p>Simposium Manado</p>
-              <div class="text-sm md:block md:max-w-xl font-normal">
-                <p>Simposium Manado merupakan website dimana anda dapat dengan mudah mendapatkan informasi sampai bertransaksi seputar simposium yang ada di SAM Ratulangi</p>
-              </div>
+        <div class="w-full h-full md:flex md:justify-between">
+          <div class="mb-6 md:mb-0 text-sky-700 font-semibold text-2xl ml-3  self-center">
+              <p>Event Hub</p>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">HEADLINE</h2>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Contact Support</h2>
                   <ul class="text-gray-500 font-medium">
                       <li class="mb-4">
-                          <a href="https://flowbite.com/" class="hover:underline">TEXT</a>
+                          <a href="https://flowbite.com/" class="hover:underline">Help Center</a>
                       </li>
                       <li>
                           <a href="https://tailwindcss.com/" class="hover:underline">TEXT</a>
@@ -47,7 +44,7 @@
     <hr class="border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="https://flowbite.com/" class="hover:underline">Simposium Manado</a>. All Rights Reserved.
+          <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="https://flowbite.com/" class="hover:underline">Event Hub</a>. All Rights Reserved.
           </span>
           <div class="flex mt-4 sm:justify-center sm:mt-0">
               <a href="#" class="text-gray-500 hover:text-gray-900">
