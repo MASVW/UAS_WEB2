@@ -3,8 +3,8 @@
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="/" wire:navigate class="-m-1.5 p-1.5">
-          <span class="sr-only">Simposium Manado</span>
-          <p class="text-3xl lg:text-2xl 2xl:text-3xl xl:text-lg font-bold bg-gradient-to-tl from-sky-800  to-sky-400 bg-clip-text text-transparent">Simposium Manado</p>
+          <span class="sr-only">{{config('APP.NAME')}}</span>
+          <p class="text-3xl lg:text-2xl 2xl:text-3xl xl:text-lg font-bold bg-gradient-to-tl from-sky-800  to-sky-400 bg-clip-text text-transparent">Event Hub</p>
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -118,7 +118,7 @@
                           </svg>
 
                           <span class="mx-1">
-                            Tentang Simposium
+                            Tentang Event Hub
                           </span>
                       </a>
 
