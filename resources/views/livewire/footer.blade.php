@@ -1,7 +1,7 @@
 <footer class="rounded-tl-3xl rounded-tr-3xl shadow-up-xl mt-40 z-20">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="w-full h-full md:flex md:justify-between">
-          <div class="mb-6 md:mb-0 text-sky-700 font-semibold text-2xl ml-3  self-center">
+          <div class="mb-6 md:mb-0 text-sky-700 font-semibold text-2xl ml-3 self-center">
               <p>Event Hub</p>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
