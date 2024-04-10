@@ -8,6 +8,7 @@ use App\Livewire\Register;
 use App\Livewire\ResetPassword;
 use App\Livewire\Profile;
 use App\Livewire\UpdateProfile;
+use App\Livewire\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,7 @@ Route::get('/lupa-password', ResetPassword::class);
 Route::get('/profil/{user:firstName}', Profile::class)->name('profil');
 Route::get('/profil/{user:firstName}/update', UpdateProfile::class)->name('profil.update');
 
-
+Route::get('/keranjang', Cart::class)->name('keranjang'); 
 
 
 
