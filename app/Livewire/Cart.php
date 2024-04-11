@@ -16,8 +16,7 @@ use Ramsey\Collection\Collection;
 
 class Cart extends Component
 {
-
-     public string $userId = '';
+    public string $userId = '';
     public $bucket;
     public $selectedItem = [];
 
