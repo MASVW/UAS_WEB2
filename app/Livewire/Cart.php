@@ -16,16 +16,14 @@ use Ramsey\Collection\Collection;
 
 class Cart extends Component
 {
-    public string $userId = '';
     public $bucket;
     public $selectedItem = [];
+    public $item;
+    public $totalFormatted = "0";
 
-    //Collection
-    public $id;
-
-    public function getListeners(){
-        return ['bucketUpdated'];
-    }
+//    public function getListeners(){
+//        return ['bucketUpdated'];
+//    }
 
     public function mount(BucketService $buckets)
     {
@@ -33,6 +31,12 @@ class Cart extends Component
         $this->transformDate($data);
         $this->bucket = $data;
     }
+
+    public function updatingSummary()
+    {
+        $data = $this->selectedItem;
+    }
+
     public function transformDate($data)
     {
         $data->transform(function ($bucket) {
@@ -66,6 +70,19 @@ class Cart extends Component
         $this->transformDate($data);
         $this->bucket = $data;
     }
+
+    public function updateItem(BucketService $bucketService)
+    {
+        $this->item = [];
+        $this->totalFormatted = "0";
+
+        $data = $bucketService->getSummaryBucket($this->selectedItem);
+
+        $this->item = $data['summary'];
+        $this->totalFormatted = $data['totalFormatted'];
+        $this->bucketUpdated($bucketService);
+    }
+
     public function checkOut()
     {
         $item = collect($this->selectedItem);
