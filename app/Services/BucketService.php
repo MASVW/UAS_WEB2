@@ -7,10 +7,12 @@ use App\Models\Events;
 use http\Env\Response;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Facades\Request;
+use PhpParser\Node\Expr\Cast\Object_;
 use PHPUnit\Exception;
 
 class BucketService
 {
+
     public function __construct(public int $userId)
     {
         if (auth()->check()) {
@@ -18,9 +20,38 @@ class BucketService
         }
     }
 
+
     public function getDataWithPricesEvents(): EloquentCollection
     {
-        return Bucket::where('users_id', $this->userId)->with('prices', 'events')->get();
+        return Bucket::where('users_id', $this->userId)->with('prices.positions', 'events')->get();
+    }
+
+    public function getDataWithPricesEventsById($data): Bucket
+    {
+        return Bucket::where('id', $data)->with('prices.positions', 'events')->first();
+    }
+
+    public function getSummaryBucket($data)
+    {
+        $total = 0;
+        $summary = [];
+
+        $count = count($data);
+        for ($i = 0; $i < $count; $i++) {
+            $item = $this->getDataWithPricesEventsById($data[$i]);
+            $summary[$i] = $item;
+            $total += $item->prices->price;
+        }
+
+        return [
+            'summary' => $summary,
+            'totalFormatted' => $this->formatCurrency($total)
+        ];
+    }
+
+    function formatCurrency($amount):string
+    {
+        return number_format($amount, 0, ',', '.');
     }
 
     public function addItem($data): string
@@ -55,6 +86,7 @@ class BucketService
             return $exception->getMessage();
         }
     }
+
     public function removeItem($itemId): string
     {
         try {
