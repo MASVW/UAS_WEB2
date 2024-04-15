@@ -46,7 +46,7 @@
                         @else
                             @foreach($this->item as $item)
 
-                                <div id="listItem" class="flex pt-1 pb-3 px-4 divide-y">
+                                <div id="listItem" class="flex pt-1 pb-3 px-4">
                                     <div class="flex-1">
                                         <p class="text-sm">{{$loop->iteration}}. <span>{{$item->events->eventName}}</span></p>
                                         <p class="ms-5 text-xs">{{$item->prices->priceTag}}</p>
@@ -65,11 +65,31 @@
 
                             @endforeach
                         @endif
-                    </div>
+                        @if($this->selectedItem == [])
+                            
+                        @else
+                        <div class="flex flex-col divide-y">
+                            <div class="flex flex-row w-full py-2 justify-between px-2 ">
+                            <h3 class="font-semibold leading-6 text-gray-900 text-lg  underline underline-offset-2 decoration-sky-500" >Total</h3>
+                            <h3 class="font-semibold leading-6 text-gray-900 text-lg " ><span x-data="{ formattedPrice: formatCurrency('{{$this->selectedItem->calculateTotalPrice()}}') }"
+                                                x-text="formattedPrice">></span></h3>
+                            </div>
 
-                    <!-- Display checked items -->
-                    <div x-text="'Checked Items: ' + checkedItems.join(', ')"></div>
+                            <div class="flex flex-row w-full py-2 justify-end">
+                            <button href="" type=submit class ='inline-flex items-center px-4 py-2 bg-sky-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 transition ease-in-out duration-150 shadow-lg'>
+                                Check Out
+                            </button>
+                            </div>
+                        </div>
+                        
+                        
+
+
+                        @endif
+                    </div>
+                    
                 </div>
+                
             </div>
 
         </div>
