@@ -72,7 +72,6 @@ class Cart extends Component
         $data = $buckets->getDataWithPricesEvents();
         $this->transformDate($data);
         $this->bucket = $data;
-        $this->calculateTotalPrice();
     }
 
     public function updateItem(BucketService $bucketService)
@@ -86,19 +85,6 @@ class Cart extends Component
         $this->totalFormatted = $data['totalFormatted'];
         $this->bucketUpdated($bucketService);
     }
-
-    public function calculateTotalPrice($items)
-    {
-        $totalPrice = 0;
-        
-        foreach ($items as $item) {
-            $totalPrice += $item['price']; // Assuming each item has a 'price' key
-        }
-    
-        return $totalPrice;
-    }
-    
-
 
     public function checkOut()
     {

@@ -66,30 +66,30 @@
                             @endforeach
                         @endif
                         @if($this->selectedItem == [])
-                            
+
                         @else
                         <div class="flex flex-col divide-y">
                             <div class="flex flex-row w-full py-2 justify-between px-2 ">
-                            <h3 class="font-semibold leading-6 text-gray-900 text-lg  underline underline-offset-2 decoration-sky-500" >Total</h3>
-                            <h3 class="font-semibold leading-6 text-gray-900 text-lg " ><span x-data="{ formattedPrice: formatCurrency('{{$this->selectedItem->calculateTotalPrice()}}') }"
-                                                x-text="formattedPrice">></span></h3>
+                                <h3 class="font-semibold leading-6 text-gray-900 text-lg  underline underline-offset-2 decoration-sky-500" >Total</h3>
+                                <h3 class="font-semibold leading-6 text-gray-900 text-lg " >
+                                    Rp. <span>{{$this->totalFormatted}}</span>
+                                </h3>
                             </div>
-
                             <div class="flex flex-row w-full py-2 justify-end">
-                            <button href="" type=submit class ='inline-flex items-center px-4 py-2 bg-sky-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 transition ease-in-out duration-150 shadow-lg'>
-                                Check Out
-                            </button>
+                                <button href="" type=submit class ='inline-flex items-center px-4 py-2 bg-sky-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 transition ease-in-out duration-150 shadow-lg'>
+                                    Check Out
+                                </button>
                             </div>
                         </div>
-                        
-                        
+
+
 
 
                         @endif
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
         </div>
