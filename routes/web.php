@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AboutUs;
+use App\Livewire\AdminView;
 use App\Livewire\Authentication;
 use App\Livewire\HomeSection;
 use App\Livewire\NewsContent;
@@ -33,6 +34,10 @@ Route::get('/profil/{user:firstName}', Profile::class)->name('profil');
 Route::get('/profil/{user:firstName}/update', UpdateProfile::class)->name('profil.update');
 
 Route::get('/keranjang', Cart::class)->name('keranjang'); 
+
+Route::get('/admin', AdminView::class)->name('Admin'); 
+
+
 
 
 

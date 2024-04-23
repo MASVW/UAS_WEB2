@@ -17,9 +17,9 @@
 
 <body @auth x-data="{bucket: false}" @else x-data="" @endauth>
 
-<livewire:navigation :title='$title' wire:key="{{$title}}"/>
-
 <livewire:background/>
+
+<livewire:admin-navigation/>
 <main>
     {{$slot}}
 </main>
