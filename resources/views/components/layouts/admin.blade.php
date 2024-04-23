@@ -20,9 +20,11 @@
 <livewire:background/>
 
 <livewire:admin-navigation/>
-<main>
-    {{$slot}}
-</main>
+<div class="mt-8 ml-28">
+    <main>
+        {{$slot}}
+    </main>
+</div>
 <livewire:background/>
 
 
@@ -34,7 +36,7 @@
 @endauth
 
 
-<livewire:footer>
+{{-- <livewire:footer> --}}
 
     <script>
         function formatCurrency(amount) {

@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\AboutUs;
+use App\Livewire\AdminEvent;
 use App\Livewire\AdminView;
 use App\Livewire\Authentication;
 use App\Livewire\HomeSection;
@@ -35,7 +36,9 @@ Route::get('/profil/{user:firstName}/update', UpdateProfile::class)->name('profi
 
 Route::get('/keranjang', Cart::class)->name('keranjang'); 
 
-Route::get('/admin', AdminView::class)->name('Admin'); 
+Route::get('/admin', AdminView::class)->name('admin');
+
+Route::get('/admin/manage-event', AdminEvent::class)->name('admin.manage-event'); 
 
 
 
