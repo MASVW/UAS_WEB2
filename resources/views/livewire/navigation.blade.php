@@ -1,4 +1,4 @@
-<div x-data="{ open: false }" class="bg-white fixed top-0 z-50 w-full h-24 shadow-lg">
+<div x-data="{ open: true }" class="bg-white fixed top-0 z-50 w-full h-24 shadow-lg">
   <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">

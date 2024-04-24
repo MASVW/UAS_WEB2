@@ -18,15 +18,16 @@
 <body @auth x-data="{bucket: false}" @else x-data="" @endauth>
 
 <livewire:background/>
-
-<livewire:admin-navigation/>
-<div class="mt-8 ml-28">
-    <main>
-        {{$slot}}
-    </main>
+<div x-data="{menu: false}">
+    <livewire:admin-navigation/>
+    <div class="mt-8 mr-9" :class="menu ? 'ml-72' : 'ml-28'">
+        <main>
+            {{$slot}}
+        </main>
+    </div>
 </div>
-<livewire:background/>
 
+<livewire:background/>
 
 @auth
     <x-buttonBucket/>
