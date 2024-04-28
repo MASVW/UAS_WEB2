@@ -2,6 +2,7 @@
 
 use App\Livewire\AboutUs;
 use App\Livewire\Authentication;
+use App\Livewire\CheckoutConfirmation;
 use App\Livewire\HomeSection;
 use App\Livewire\NewsContent;
 use App\Livewire\Register;
@@ -33,6 +34,9 @@ Route::get('/profil/{user:firstName}', Profile::class)->name('profil');
 Route::get('/profil/{user:firstName}/update', UpdateProfile::class)->name('profil.update');
 
 Route::get('/keranjang', Cart::class)->name('keranjang'); 
+Route::get('/konfirmasi-pesanan', CheckoutConfirmation::class)->name('konfirmasi-pesanan'); 
+
+
 
 
 
