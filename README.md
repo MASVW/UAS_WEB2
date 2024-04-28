@@ -11,10 +11,12 @@
 6. Perform `php artisan migrate:fresh --seed`
 7. Generate a new application key by running `php artisan key:generate`
 8. Start the server with `php artisan serve` and compile assets with `npm run dev`
+9. Interact web in `localhost:8000` atau `http://127.0.0.1:8000/`
 
-### Minimum Requirement
+### System Minimum Requirement</p>
 1. Php version >= 8.1
-2. Disk space > 1Gb
+2. Node versions >= 10 
+3. Disk space > 1 Gb
 
 
 ### Introducing our exceptional team:
