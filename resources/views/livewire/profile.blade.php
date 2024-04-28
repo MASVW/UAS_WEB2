@@ -98,7 +98,7 @@
                                     </li>
                                 @endforeach
                             @else
-                                {{$this->$history}}
+
                             @endif
                         </ul>
                     </dd>

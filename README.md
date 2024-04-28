@@ -24,7 +24,7 @@
    <br>
    Heads logic architecture.
 
-2. **Jianj Jeraous Young**
+2. **Jian Jeraus Young**
    <br>
    Specializes in design architecture.
 
