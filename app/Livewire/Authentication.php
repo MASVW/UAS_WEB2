@@ -10,5 +10,8 @@ class Authentication extends Component
     {
         return view('livewire.authentication')->title('Masuk');
     }
+    public function loginWithAzure(){
+        return redirect(route('azure-login'));
+    }
 }
 

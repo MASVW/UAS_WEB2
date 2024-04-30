@@ -33,10 +33,18 @@ Route::get('/lupa-password', ResetPassword::class);
 Route::get('/profil/{user:firstName}', Profile::class)->name('profil');
 Route::get('/profil/{user:firstName}/update', UpdateProfile::class)->name('profil.update');
 
-Route::get('/keranjang', Cart::class)->name('keranjang'); 
-Route::get('/konfirmasi-pesanan', CheckoutConfirmation::class)->name('konfirmasi-pesanan'); 
+Route::get('/keranjang', Cart::class)->name('keranjang');
+Route::get('/konfirmasi-pesanan', CheckoutConfirmation::class)->name('konfirmasi-pesanan');
 
+Route::get('/auth/azure/redirect', function () {
+    return \Laravel\Socialite\Facades\Socialite::driver('azure')->redirect();
+})->name('azure-login');
 
+Route::get('/auth/azure/callback', function () {
+    $user = \Laravel\Socialite\Facades\Socialite::driver('azure')->user();
+
+    // $user->token
+});
 
 
 
