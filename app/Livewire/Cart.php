@@ -12,6 +12,7 @@ use http\Env\Request;
 use Livewire\Attributes\Computed;
 use Carbon\Carbon;
 use Ramsey\Collection\Collection;
+use Illuminate\Support\Facades\Session;
 
 
 class Cart extends Component
@@ -97,6 +98,8 @@ class Cart extends Component
     }
 
     public function confirm(){
+        Session::put('item', $this->item);
+        Session::save();
         return redirect('/konfirmasi-pesanan');
     }
 }
