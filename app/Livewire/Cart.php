@@ -12,6 +12,7 @@ use http\Env\Request;
 use Livewire\Attributes\Computed;
 use Carbon\Carbon;
 use Ramsey\Collection\Collection;
+use Illuminate\Support\Facades\Session;
 
 
 class Cart extends Component
@@ -19,6 +20,8 @@ class Cart extends Component
     public $bucket;
     public $selectedItem = [];
     public $item;
+
+    public $test;
 
     public $totalPrice = 0;
 
@@ -76,13 +79,20 @@ class Cart extends Component
 
     public function updateItem(BucketService $bucketService)
     {
+        Session::forget('test');
+        Session::forget('total');
         $this->item = [];
         $this->totalFormatted = "0";
 
         $data = $bucketService->getSummaryBucket($this->selectedItem);
 
         $this->item = $data['summary'];
+        Session::put('test',  $data['summary']);
+        
+        
         $this->totalFormatted = $data['totalFormatted'];
+        Session::put('total',  $this->totalFormatted);
+        Session::save();
         $this->bucketUpdated($bucketService);
     }
 
