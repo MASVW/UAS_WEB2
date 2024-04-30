@@ -95,4 +95,8 @@ class Cart extends Component
     {
         return view('livewire.cart');
     }
+
+    public function confirm(){
+        return redirect('/konfirmasi-pesanan');
+    }
 }

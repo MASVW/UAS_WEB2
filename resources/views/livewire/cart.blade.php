@@ -76,7 +76,7 @@
                                 </h3>
                             </div>
                             <div class="flex flex-row w-full py-2 justify-end">
-                                <button href="" type=submit class ='inline-flex items-center px-4 py-2 bg-sky-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 transition ease-in-out duration-150 shadow-lg'>
+                                <button wire:click='confirm' type=submit class ='inline-flex items-center px-4 py-2 bg-sky-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-sky-600 focus:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 transition ease-in-out duration-150 shadow-lg'>
                                     Check Out
                                 </button>
                             </div>
