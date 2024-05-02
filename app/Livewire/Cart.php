@@ -107,6 +107,8 @@ class Cart extends Component
     }
 
     public function confirm(){
+        Session::put('item', $this->item);
+        Session::save();
         return redirect('/konfirmasi-pesanan');
     }
 }
