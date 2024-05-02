@@ -9,11 +9,8 @@ class CheckoutConfirmation extends Component
 
     public $item;
     public $halaman = 1;
+    public $price;
     
-    public function acceptItem(){
-        $this->item = Session('item');
-    }
-
     public function nextPage(){
         $this->halaman++;
     }
@@ -27,6 +24,10 @@ class CheckoutConfirmation extends Component
         $this->acceptItem();
         return view('livewire.checkout-confirmation');
     }
-
+    
+    public function acceptItem(){
+        $this->item = Session('test');
+        $this->price = Session('total');
+    }
 
 }

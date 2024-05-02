@@ -26,9 +26,9 @@ class BucketService
         return Bucket::where('users_id', $this->userId)->with('prices.positions', 'events')->get();
     }
 
-    public function getDataWithPricesEventsById($data): Bucket
+    public function getDataWithPricesEventsById($data)
     {
-        return Bucket::where('id', $data)->with('prices.positions', 'events')->first();
+        return Bucket::where('id', $data)->with('prices.positions', 'events', 'prices')->first();
     }
 
     public function getSummaryBucket($data)
